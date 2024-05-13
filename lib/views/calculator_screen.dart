@@ -1,13 +1,14 @@
-import 'package:calculadora_app/providers/calculator_notifier.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+
+import 'package:calculadora_app/providers/calculator_notifier.dart';
 
 class CalculatorScreen extends StatelessWidget {
   const CalculatorScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
-    final calculatorModel = Provider.of<CalculatorNotifier>(context);
+    final calculatorNotifier = Provider.of<CalculatorNotifier>(context);
 
     return Scaffold(
       appBar: AppBar(
@@ -20,7 +21,7 @@ class CalculatorScreen extends StatelessWidget {
             padding: const EdgeInsets.all(20),
             alignment: Alignment.centerRight,
             child: Text(
-              calculatorModel.display,
+              calculatorNotifier.display,
               style: const TextStyle(fontSize: 64),
             ),
           ),
@@ -63,7 +64,7 @@ class CalculatorScreen extends StatelessWidget {
                 child: Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 4.0),
                   child: ElevatedButton(
-                    onPressed: calculatorModel.calculate,
+                    onPressed: calculatorNotifier.calculate,
                     style: ElevatedButton.styleFrom(
                       backgroundColor: Colors.green,
                     ),
@@ -85,7 +86,7 @@ class CalculatorScreen extends StatelessWidget {
                 child: Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 4.0),
                   child: ElevatedButton(
-                    onPressed: calculatorModel.clearDisplay,
+                    onPressed: calculatorNotifier.clearDisplay,
                     style: ElevatedButton.styleFrom(
                       backgroundColor: Colors.redAccent,
                     ),
@@ -104,13 +105,13 @@ class CalculatorScreen extends StatelessWidget {
   }
 
   Widget buildButton(String text, BuildContext context) {
-    final calculatorModel = Provider.of<CalculatorNotifier>(context);
+    final calculatorNotifier = Provider.of<CalculatorNotifier>(context);
 
     return Expanded(
       child: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 4.0),
         child: ElevatedButton(
-          onPressed: () => calculatorModel.updateDisplay(text),
+          onPressed: () => calculatorNotifier.updateDisplay(text),
           child: Text(
             text,
             style: const TextStyle(fontSize: 24),

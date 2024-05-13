@@ -1,7 +1,8 @@
-import 'package:calculadora_app/providers/calculator_notifier.dart';
-import 'package:calculadora_app/views/calculator_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+
+import 'package:calculadora_app/providers/calculator_notifier.dart';
+import 'package:calculadora_app/views/calculator_screen.dart';
 
 void main() {
   runApp(const MyApp());
